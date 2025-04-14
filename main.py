@@ -7,12 +7,14 @@ from menu.clean_connections import clean_connections
 from menu.search_connection import search_connection
 from menu.display_connections import display_connections
 from menu.save_and_exit import save_and_exit
+from logger import Logger
 
 def main():
     """Fonction principale du programme."""
-    # Initialisation de l'arbre AVL
+    # Initialisation de l'arbre AVL et du logger
     avl = AVLTree()
     root = None
+    logger = Logger()
 
     # Chargement des connexions depuis le fichier s'il existe
     filename = "connexions.txt"
@@ -20,9 +22,12 @@ def main():
         print(f"Chargement des connexions depuis {filename}...")
         root = avl.load_from_file(filename)
         if root:
+            connexions = avl.inorder(root)
             print("Connexions chargées avec succès!")
+            logger.log_connections_loaded(filename, len(connexions))
         else:
             print("Aucune connexion trouvée ou fichier vide.")
+            logger.log_connections_loaded(filename, 0)
 
     while True:
         afficher_menu()
@@ -30,27 +35,28 @@ def main():
 
         if choix == "1":
             # Ajouter une connexion IP
-            root = add_connection(avl, root)
+            root = add_connection(avl, root, logger)
 
         elif choix == "2":
             # Supprimer une IP
-            root = delete_connection(avl, root)
+            root = delete_connection(avl, root, logger)
 
         elif choix == "3":
             # Nettoyer les IP inactives
-            root = clean_connections(avl, root)
+            root = clean_connections(avl, root, logger)
 
         elif choix == "4":
             # Rechercher une IP
-            search_connection(avl, root)
+            search_connection(avl, root, logger)
 
         elif choix == "5":
             # Afficher toutes les connexions
-            display_connections(avl, root)
+            display_connections(avl, root, logger)
 
         elif choix == "6":
             # Quitter et sauvegarder
-            if save_and_exit(avl, root, filename):
+            if save_and_exit(avl, root, filename, logger):
+                logger.log_system_exit()
                 break
 
         else:

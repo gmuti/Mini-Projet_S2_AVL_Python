@@ -15,6 +15,10 @@ Ce projet implémente un système de surveillance des connexions réseau utilisa
 
 - `avl.py` : Implémentation de l'arbre AVL et de la classe Connexion
 - `main.py` : Interface utilisateur en ligne de commande
+- `logger.py` : Système de journalisation des opérations
+- `utils.py` : Fonctions utilitaires
+- `menu/` : Répertoire contenant les modules pour chaque option du menu
+- `system_logs.txt` : Fichier de logs généré automatiquement
 
 ## Utilisation
 
@@ -65,6 +69,19 @@ L'arbre AVL est implémenté avec les caractéristiques suivantes :
 - Rotations automatiques (gauche, droite, gauche-droite, droite-gauche) pour maintenir l'équilibre
 - Parcours inorder pour afficher les connexions triées
 - Mécanisme de nettoyage basé sur l'horodatage des connexions
+
+## Système de Logs
+
+Le système intègre un mécanisme de journalisation qui enregistre toutes les opérations importantes :
+
+- Démarrage et arrêt du système
+- Ajout et suppression de connexions
+- Nettoyage des connexions inactives
+- Recherche de connexions
+- Affichage des connexions
+- Sauvegarde et chargement des connexions
+
+Les logs sont stockés dans le fichier `system_logs.txt` avec horodatage, permettant de suivre l'historique complet des opérations effectuées sur le système.
 
 ## Auteur
 
