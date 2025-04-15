@@ -11,6 +11,7 @@ from logger import Logger
 
 def main():
     """Fonction principale du programme."""
+
     # Initialisation de l'arbre AVL et du logger
     avl = AVLTree()
     root = None
