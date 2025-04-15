@@ -3,3 +3,12 @@
 [2025-04-15 10:32:41] SYSTÈME DÉMARRÉ
 [2025-04-15 10:32:55] CONNEXION AJOUTÉE: 12.32.332.22
 [2025-04-15 10:33:05] AFFICHAGE: 1 connexions listées
+[2025-04-15 15:04:27] SYSTÈME DÉMARRÉ
+[2025-04-15 15:04:43] CONNEXION AJOUTÉE: 122.323.22.2
+[2025-04-15 15:04:43] SAUVEGARDE: 1 connexions sauvegardées dans connexions.txt
+[2025-04-15 15:04:53] AFFICHAGE: 1 connexions listées
+[2025-04-15 15:05:11] SAUVEGARDE: 1 connexions sauvegardées dans connexions.txt
+[2025-04-15 15:05:11] SYSTÈME ARRÊTÉ
+[2025-04-15 15:05:34] SYSTÈME DÉMARRÉ
+[2025-04-15 15:05:34] CHARGEMENT: 1 connexions chargées depuis connexions.txt
+[2025-04-15 15:05:39] AFFICHAGE: 1 connexions listées

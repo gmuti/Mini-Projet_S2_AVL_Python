@@ -11,16 +11,13 @@ def save_and_exit(avl, root, filename, logger):
     Returns:
         bool: True pour indiquer qu'il faut quitter le programme
     """
-    if root:
-        connexions = avl.inorder(root)
-        avl.save_to_file(root, filename)
-        print(f"Connexions sauvegardées dans {filename}")
+    from menu.save_connections import save_connections
 
-        # Enregistrer l'opération dans les logs
-        logger.log_connections_saved(filename, len(connexions))
-    else:
-        # Enregistrer qu'aucune connexion n'a été sauvegardée
-        logger.log_connections_saved(filename, 0)
+    # Utiliser la fonction save_connections pour sauvegarder les connexions
+    save_connections(avl, root, filename, logger)
+
+    if root:
+        print(f"Connexions sauvegardées dans {filename}")
 
     print("Merci d'avoir utilisé le système de surveillance des connexions!")
     return True

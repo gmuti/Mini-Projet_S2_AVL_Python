@@ -7,6 +7,7 @@ from menu.clean_connections import clean_connections
 from menu.search_connection import search_connection
 from menu.display_connections import display_connections
 from menu.save_and_exit import save_and_exit
+from menu.save_connections import save_connections
 from logger import Logger
 
 def main():
@@ -37,14 +38,20 @@ def main():
         if choix == "1":
             # Ajouter une connexion IP
             root = add_connection(avl, root, logger)
+            # Sauvegarder les connexions après ajout
+            save_connections(avl, root, filename, logger)
 
         elif choix == "2":
             # Supprimer une IP
             root = delete_connection(avl, root, logger)
+            # Sauvegarder les connexions après suppression
+            save_connections(avl, root, filename, logger)
 
         elif choix == "3":
             # Nettoyer les IP inactives
             root = clean_connections(avl, root, logger)
+            # Sauvegarder les connexions après nettoyage
+            save_connections(avl, root, filename, logger)
 
         elif choix == "4":
             # Rechercher une IP
